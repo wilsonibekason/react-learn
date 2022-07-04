@@ -2,9 +2,9 @@
 
 
 
-
-
 import React from "react";
+import First from './First.js';
+import Second from './Second.js';
 
 class App extends React.Component {
   render() {
@@ -14,6 +14,8 @@ class App extends React.Component {
         <h1>
           Hello {name}
         </h1>
+        <First/>
+        <Second />
       </>
     );
   }
