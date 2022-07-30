@@ -67,3 +67,15 @@ const postReducer = (state = [], action) => {
     }
   }
 };
+// testing out our reducer
+
+const initialState = [];
+// define action using the initial create Post
+const action = createPost(
+  "wilson",
+  "coding is sweet because it teaches you how to think"
+);
+
+// finally we will execute the reducer and log the result
+const newState = postReducer(initialState, action);
+console.log(newState);
