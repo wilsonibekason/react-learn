@@ -71,7 +71,7 @@ const postReducer = (state = [], action) => {
 
 const initialState = [];
 // define action using the initial create Post
-const action = createPost(
+const action = producePost(
   "wilson",
   "coding is sweet because it teaches you how to think"
 );
