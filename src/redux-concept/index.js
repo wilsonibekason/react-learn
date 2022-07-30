@@ -79,3 +79,4 @@ const action = producePost(
 // finally we will execute the reducer and log the result
 const newState = postReducer(initialState, action);
 console.log(newState);
+// created store initialised state function  created reducers function and tested the reducers
