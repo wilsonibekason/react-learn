@@ -104,3 +104,18 @@ const IncrementNumber = () => {
 
 export default IncrementNumber;
 // completed simple number increment state application
+const ACTIONS = {
+  INCREMENT: "increment",
+  DECREMENT: "decrement",
+};
+const { INCREMENT, DECREMENT } = ACTIONS;
+const reducer = (state, action) => {
+  switch (action.type) {
+    case INCREMENT:
+      return { count: state.count + 1 };
+      break;
+    case DECREMENT:
+      return { count: state.count };
+  }
+};
+// T
