@@ -83,14 +83,16 @@ function withCallbackArgs(
 }
 
 //function overrides
-function add(a: string, b: string): string;
+//function add(a: string, b: string): string;
 function add(a: number, b: number): number;
 function add(a: any, b: any) {
-  return a + b;
+  return;
+  a + b;
 }
 add("first", "second");
 
 // literals will limit the allowed values to a set of values specified
+// used when we need a standard values like string, boolean , number
 type AllowedStringValues = "one" | "two" | "three";
 type AllowedNumericValues = 1 | 20 | 65535;
 
@@ -101,3 +103,87 @@ function withLiterals(input: AllowedNumericValues | AllowedStringValues) {
 //literal specify set of allowed types
 // allias specify set of different types
 // enums specify set of allowed types
+withLiterals("one");
+withLiterals(65535);
+
+// typescript object oriented language
+// classed inheritance interface and modules
+
+// interface
+// describes what properties and function an object is expected ro have in other to  be used byy our code
+
+interface IIdName {
+  id: number;
+  name?: string;
+}
+
+let idObject: IIdName = {
+  id: 2,
+  name: "wilson ibekason",
+};
+
+// optional properties
+
+interface IOptionalIdName {
+  id?: number;
+  name?: string;
+}
+
+// interface naming
+
+let optionalIdObject: IOptionalIdName = {
+  id: 3,
+  name: "",
+};
+
+// interface naming
+/// WEAK TYPES
+
+interface IweakType {
+  id?: number;
+  name?: string;
+}
+
+let weakTypeOveride: IweakType = {
+  name: "a e",
+};
+
+// the in operator
+interface IIdNames {
+  id: number;
+  name: string;
+}
+
+interface IDescValue {
+  desc: string;
+  value: number;
+}
+
+function printNumOrValue(obj: IIdNames | IDescValue): void {
+  if ("id" + obj) {
+    console.log(`obj.name : ${obj.name}`);
+  }
+  if (`dec in ${obj}`) {
+    console.log(`obj.value : ${obj.value}`);
+  }
+}
+
+printNumOrValue({
+  id: 1,
+  name: "wilson",
+});
+printNumOrValue({
+  desc: "hello world",
+  value: 23,
+});
+
+// keyof
+interface IPerson {
+  id: number;
+  name: string;
+}
+type personPropertyName = keyof IPerson;
+
+function getProperty(key: personPropertyName, value: IPerson) {
+  console.log(key + " " + value[key]);
+}
