@@ -238,3 +238,17 @@ let classB = new ClassB();
 
 printClass(classA);
 printClass(classB);
+
+// class constructors
+// this can accept arguement during initial construction
+class ClassWithConstructor {
+  id: number | undefined;
+  constructor(id: number) {
+    this.id = id;
+    // {id}
+  }
+}
+let classWithConstructor = new ClassWithConstructor(10);
+console.log(`classWithConstructor = ${JSON.stringify(classWithConstructor)}`);
+
+// class modifiers
