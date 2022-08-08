@@ -251,4 +251,20 @@ class ClassWithConstructor {
 let classWithConstructor = new ClassWithConstructor(10);
 console.log(`classWithConstructor = ${JSON.stringify(classWithConstructor)}`);
 
-// class modifiers
+// class modifiers used to indicate whether a class variable or function can be accessed from outside the class itself
+
+class ClassWithPublicProperty {
+  public id: number | undefined;
+}
+let publicAccess = new ClassWithPublicProperty();
+publicAccess.id = 10;
+
+class ClassWithPrivateProperty {
+  private id: number;
+  constructor(id: number) {
+    this.id = id;
+  }
+}
+let privateAccess = new ClassWithPrivateProperty();
+privateAccess.id = 10;
+// error id is private an is only accessible within the class scope
