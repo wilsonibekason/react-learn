@@ -265,6 +265,38 @@ class ClassWithPrivateProperty {
     this.id = id;
   }
 }
-let privateAccess = new ClassWithPrivateProperty();
+let privateAccess = new ClassWithPrivateProperty(20);
 privateAccess.id = 10;
 // error id is private an is only accessible within the class scope
+
+// javascript private fields
+class ClassES6Private {
+  #id: number;
+  constructor(id: number) {
+    this.#id = id;
+  }
+}
+let privateClass = new ClassES6Private(10);
+privateClass.id = 20;
+
+// construtor parameters properties
+class ClassWithModes {
+  constructor(public id: number, private name: string) {}
+}
+let myClassMod = new ClassWithModes(1, "TEXT");
+console.log(`myClassMod: ${myClassMod.id}`);
+console.log(`myClassMod : ${myClassMod.name}`);
+
+// readonly
+
+class ClassWithReadOnly {
+  readonly name: string;
+  constructor(name: string) {
+    this.name = name;
+  }
+  setName(name: string) {
+    this.name = name;
+  }
+}
+
+//Cannot assign to 'name' because it is a read-only property
