@@ -187,3 +187,54 @@ type personPropertyName = keyof IPerson;
 function getProperty(key: personPropertyName, value: IPerson) {
   console.log(key + " " + value[key]);
 }
+
+getProperty("id", { id: 1, name: "wkiwsk" });
+
+// CLASSES
+// definition of an object what data it holds and what properties it can contain
+class SimpleClass {
+  id?: number | undefined;
+  name: string;
+  print(): void {
+    console.log("functionis called");
+  }
+}
+
+// the this keyword
+// a simple class specifies the properties of its  class and the functions it can perform
+
+class SimpleClass2 {
+  id?: number | undefined;
+  name: string;
+  print(): void {
+    console.log(`function is of perperty ${this.name}`);
+  }
+}
+
+// implementing interfaces
+// interface describes a custom type with properties and functions
+// a class describes an object with properties and functions
+
+interface IPrint {
+  print(): void;
+}
+
+function printClass(a: IPrint) {
+  a.print();
+}
+class ClassA implements IPrint {
+  print(): void {
+    console.log("classA print called");
+  }
+}
+class ClassB implements IPrint {
+  print(): void {
+    console.log("classb is called");
+  }
+}
+
+let classA = new ClassA();
+let classB = new ClassB();
+
+printClass(classA);
+printClass(classB);
