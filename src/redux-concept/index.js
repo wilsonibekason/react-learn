@@ -80,3 +80,15 @@ const action = producePost(
 const newState = postReducer(initialState, action);
 console.log(newState);
 // created store initialised state function  created reducers function and tested the reducers
+// the filter reducer function
+const filterReducer = (state = "all", action) => {
+  action.type === SET_FILTER ? action.filter : state;
+};
+// combining the reducers with app or root function
+function appReducer(state = {}, action) {
+  return {
+    posts: postReducer(state.posts, action),
+    filter: filterReducer(state.filter, action),
+  };
+}
+// defualt outputs reduc/init state, and an undefind action
