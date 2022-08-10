@@ -300,3 +300,17 @@ class ClassWithReadOnly {
 }
 
 //Cannot assign to 'name' because it is a read-only property
+
+// get and set or property accesstors
+class ClassWithAccessors {
+  private _id: string;
+  get id(): number {
+    console.log("get id property");
+    return this._id;
+  }
+  set id(value: string) {
+    console.log("set id property");
+    return (this._id = value);
+  }
+}
+// 
