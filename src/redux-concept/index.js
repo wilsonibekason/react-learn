@@ -5,7 +5,7 @@ const CREATE_POST = "CREATE_POST";
 const EDIT_POST = "EDIT_POST";
 const SET_FILTER = "SET_FILTER";
 
-const createPost = { type: CREATE_POST, user: "dan", text: "new post" };
+export const createPost = { type: CREATE_POST, user: "dan", text: "new post" };
 console.log(createPost);
 // ES2015 use of arrow function
 function producePost(user, text) {
@@ -94,7 +94,7 @@ function appReducer(state = {}, action) {
   };
 }
 // defualt outputs reduc/init state, and an undefind action
-const appsReducer = combineReducers({
+export const appsReducer = combineReducers({
   posts: postReducer,
   filter: filterReducer,
 });
