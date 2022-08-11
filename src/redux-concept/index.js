@@ -1,3 +1,5 @@
+import { combineReducers } from "redux";
+
 //import { CREATE_POST } from "./actionTypes";
 const CREATE_POST = "CREATE_POST";
 const EDIT_POST = "EDIT_POST";
@@ -92,3 +94,20 @@ function appReducer(state = {}, action) {
   };
 }
 // defualt outputs reduc/init state, and an undefind action
+const appsReducer = combineReducers({
+  posts: postReducer,
+  filter: filterReducer,
+});
+
+let state = appsReducer(undefined, { type: "INIT_ACTION" });
+console.log("====================================");
+console.log("state", state);
+console.log("====================================");
+
+state = appsReducer(state, createPost("wilson", "test"));
+console.log(state);
+
+// redux is a predictable state container for javascript applications
+// access appliation state
+// dispatch actions
+// registr listeners
