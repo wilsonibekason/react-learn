@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { createStore } from "redux";
-import { appsReducer } from ".";
+import { appsReducer, createPost } from ".";
 
 // stores takes in two arguements
 // APP REDUCER
